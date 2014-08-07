@@ -4,6 +4,7 @@ import day.hack.wtfMyBus.R;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.SearchView;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.view.View.OnClickListener;
@@ -27,7 +29,7 @@ public class LeecherActivity extends Activity {
 		setContentView(R.layout.leecher_screen);
 	}
 
-	
+
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
@@ -35,24 +37,22 @@ public class LeecherActivity extends Activity {
 
 	protected void onStart() {
 		super.onStart();
-		int gps=1;
-		//check for gps
-		if(gps!=0){
-			
-			TextView busText = (TextView) findViewById(R.id.bustext);
-			EditText leecher = (EditText) findViewById(R.id.editbustext);
-			Button shareButton = (RadioButton) findViewById(R.id.shareBtn);
-
-			shareButton.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Intent intent=new Intent(this,MapActivity.class);
-					startActivity(intent);
-				}
-			});
-			
-		}
+		TextView busText = (TextView) findViewById(R.id.bustext);
+		SearchView seeder  = (SearchView) findViewById(R.id.searchView);
+		Button searchButton = (Button) findViewById(R.id.searchBtn);
 		
+		searchButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				startActivityForMap();
+			}
+		});
+	}
+
+
+	public void startActivityForMap() {
+		Intent intent = new Intent(this, MapsActivity.class);
+		startActivity(intent);
 	}
 }
 

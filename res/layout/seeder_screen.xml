@@ -8,48 +8,49 @@
     <TextView
         android:id="@+id/bustext"
         android:layout_width="fill_parent"
-        android:layout_height="87dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
-        android:text="Search BUS Number"
+        android:text="Enter Bus Number"
         android:textColor="#ffffff"
-        android:textSize="30sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         android:typeface="normal" />
 
-        <LinearLayout
-            android:id="@+id/LinearLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:minHeight="50dp"
-            android:orientation="horizontal" >
-
-            <SearchView
-                android:id="@+id/searchView"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                
-                android:layout_weight="0.29" 
-                android:background="#ffffff">
-            </SearchView>
-        </LinearLayout>
-        <Button
-        android:id="@+id/searchBtn"
+    <EditText
+        android:id="@+id/editbustext"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/continue_bg"
-        android:minHeight="50dp"
-        android:onClick="fetchRunsheetData"
-        android:text="Search"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:textColor="#000000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:typeface="normal" >
+    </EditText>
+
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/shareBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginBottom="70dp"
+            android:background="@drawable/continue_bg"
+            android:minHeight="50dp"
+            android:text="Share"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 </LinearLayout>

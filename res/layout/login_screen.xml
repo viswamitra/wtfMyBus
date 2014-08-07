@@ -9,34 +9,32 @@
         android:id="@+id/app_title"
         android:layout_width="fill_parent"
         android:layout_height="80dp"
+       
         android:background="@drawable/continue_bg"
-       
-       
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
-        android:text="Spot the BUS"
+        android:gravity="center"
+        android:text="WTF My Bus"
         android:textColor="#ffffff"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:textStyle="bold"
-        android:typeface="normal"
-        android:gravity="center" />
+        android:typeface="normal" />
 
     <RadioGroup
         android:id="@+id/radiogrp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="20dp"
         android:background="#000000"
-        android:orientation="horizontal" >
+        android:orientation="vertical" >
 
         <RadioButton
             android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="140dp"
-            android:layout_weight="0.29"
+            android:layout_width="142dp"
+            android:layout_height="wrap_content"
             android:text="Leecher"
             android:textColor="#ffffff"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <RadioButton
@@ -47,23 +45,30 @@
             android:checked="true"
             android:text="Seeder"
             android:textColor="#ffffff"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
-   </RadioGroup>
+    </RadioGroup>
 
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/continue_bg"
-        android:minHeight="50dp"
-        android:onClick="fetchRunsheetData"
-        android:text="Login"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+    <RelativeLayout
+        android:id="@+id/RelativeLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:layout_marginLeft="70dp"
+            android:layout_marginRight="70dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/continue_bg"
+            android:minHeight="50dp"
+            android:text="Login"
+            android:textColor="#ffffff"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
 
 </LinearLayout>
