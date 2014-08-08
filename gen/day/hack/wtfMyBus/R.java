@@ -402,8 +402,9 @@ containing a value of this type.
         public static final int ic_plusone_small_off_client=0x7f02001b;
         public static final int ic_plusone_standard_off_client=0x7f02001c;
         public static final int ic_plusone_tall_off_client=0x7f02001d;
-        public static final int powered_by_google_dark=0x7f02001e;
-        public static final int powered_by_google_light=0x7f02001f;
+        public static final int icon=0x7f02001e;
+        public static final int powered_by_google_dark=0x7f02001f;
+        public static final int powered_by_google_light=0x7f020020;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f070015;
@@ -421,7 +422,7 @@ containing a value of this type.
         public static final int holo_light=0x7f070006;
         public static final int hybrid=0x7f070004;
         public static final int loginBtn=0x7f07001d;
-        public static final int mapView=0x7f07001e;
+        public static final int map=0x7f07001e;
         public static final int match_parent=0x7f07000c;
         public static final int monochrome=0x7f070013;
         public static final int none=0x7f070000;

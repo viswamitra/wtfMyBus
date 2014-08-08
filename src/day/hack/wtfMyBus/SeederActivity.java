@@ -39,19 +39,19 @@ public class SeederActivity extends Activity {
 		TextView busText = (TextView) findViewById(R.id.bustext);
 		EditText seeder = (EditText) findViewById(R.id.editbustext);
 		Button shareButton = (Button) findViewById(R.id.shareBtn);
-
+		String searchableitem = seeder.getText().toString();
 		shareButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//startActivityForMap();
+				startActivityForMap();
 			}
 		});
 	}
 	
-//	public void startActivityForMap() {
-//		Intent intent = new Intent(this, MapsActivity.class);
-//		startActivity(intent);
-//	}
+	public void startActivityForMap() {
+		Intent intent = new Intent(this, MapsActivity.class);
+		startActivity(intent);
+	}
 }
 
 

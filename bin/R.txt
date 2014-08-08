@@ -96,8 +96,9 @@ int drawable ic_plusone_medium_off_client 0x7f02001a
 int drawable ic_plusone_small_off_client 0x7f02001b
 int drawable ic_plusone_standard_off_client 0x7f02001c
 int drawable ic_plusone_tall_off_client 0x7f02001d
-int drawable powered_by_google_dark 0x7f02001e
-int drawable powered_by_google_light 0x7f02001f
+int drawable icon 0x7f02001e
+int drawable powered_by_google_dark 0x7f02001f
+int drawable powered_by_google_light 0x7f020020
 int id LinearLayout1 0x7f070015
 int id RelativeLayout1 0x7f070017
 int id app_title 0x7f070019
@@ -113,7 +114,7 @@ int id holo_dark 0x7f070005
 int id holo_light 0x7f070006
 int id hybrid 0x7f070004
 int id loginBtn 0x7f07001d
-int id mapView 0x7f07001e
+int id map 0x7f07001e
 int id match_parent 0x7f07000c
 int id monochrome 0x7f070013
 int id none 0x7f070000
