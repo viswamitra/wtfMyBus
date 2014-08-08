@@ -49,8 +49,8 @@ public class SeederActivity extends Activity {
 	}
 	
 	public void startActivityForMap() {
-		Intent intent = new Intent(this, MapsActivity.class);
-		startActivity(intent);
+//		Intent intent = new Intent(this, MapsActivity.class);
+//		startActivity(intent);
 	}
 }
 

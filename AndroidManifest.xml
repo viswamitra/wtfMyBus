@@ -41,7 +41,7 @@
             android:windowSoftInputMode="stateHidden">
         </activity>
     
-        <activity android:name="day.hack.wtfMyBus.MapsActivity" 
+        <activity android:name="day.hack.wtfMyBus.MapActivity"
             android:windowSoftInputMode="stateHidden">
         </activity>
 
@@ -49,7 +49,7 @@
         android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyDMoC1_CRhSyPAKlzahd1DteTM08Ol7vXk" />
+            android:value="AIzaSyCyGjvJQ1mnJxDXmGFUWlnCef5jwqZNTJ4" />
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.view.View;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -91,9 +92,10 @@ public class MapAsyncTask extends AsyncTask<String, Void, List> {
         } catch (Exception e) {
             //nothing
         }
-        Intent intent = new Intent(context, MapsActivity.class);
-        String userLocationsJson = new Gson().toJson(result);
-        intent.putExtra("userLocationsJson", userLocationsJson);
-        context.startActivity(intent);
+
+        
+
+
+
     }
 }
