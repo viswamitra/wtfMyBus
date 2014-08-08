@@ -93,9 +93,10 @@ public class MapAsyncTask extends AsyncTask<String, Void, List> {
             //nothing
         }
 
-        
-
-
+        Intent intent = new Intent(context, MapActivity.class);
+        String userLocationsJson = new Gson().toJson(result);
+        intent.putExtra("userLocationsJson", userLocationsJson);
+        context.startActivity(intent);
 
     }
 }

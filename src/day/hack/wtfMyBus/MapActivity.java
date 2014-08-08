@@ -30,14 +30,24 @@ public class MapActivity extends Activity {
         GoogleMap map = ((MapFragment) getFragmentManager()
                 .findFragmentById(R.id.map)).getMap();
 
-        LatLng sydney = new LatLng(-33.867, 151.206);
+        LocationManager locManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+        Location location = locManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+
+        LatLng yourLocation = new LatLng(location.getLatitude(), location.getLongitude());
 
         map.setMyLocationEnabled(true);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 13));
+        map.moveCamera(CameraUpdateFactory.newLatLngZoom(yourLocation, 13));
 
         map.addMarker(new MarkerOptions()
-                .title("Sydney")
-                .snippet("The most populous city in Australia.")
-                .position(sydney));
+                .title("you")
+                .snippet("Your current Location")
+                .position(yourLocation));
+
+
+        
+
+
+
     }
 }
