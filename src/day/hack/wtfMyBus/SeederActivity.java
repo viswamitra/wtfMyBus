@@ -3,7 +3,10 @@ package day.hack.wtfMyBus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -51,7 +54,22 @@ public class SeederActivity extends Activity implements LocationListener {
 		TextView busText = (TextView) findViewById(R.id.bustext);
 		EditText seeder = (EditText) findViewById(R.id.editbustext);
         Button shareButton = (Button) findViewById(R.id.shareBtn);
-        busNumber = seeder.getText().toString();
+        seeder.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                busNumber = editable.toString();
+            }
+        });
         userId = getIntent().getExtras().get("userId").toString();
 
         Log.d(TAG, "------------> "+busNumber);
@@ -76,6 +94,7 @@ public class SeederActivity extends Activity implements LocationListener {
 
     @Override
     public void onLocationChanged(Location location) {
+        progressDialog = new ProgressDialog(SeederActivity.this);
         new SeederAsyncTask(userId, busNumber, location, progressDialog).execute();
     }
 

@@ -53,13 +53,9 @@ public class MapActivity extends Activity implements LocationListener {
         for(UserLocation userLocation : userLocations) {
             LatLng yourLocation = new LatLng(Double.parseDouble(userLocation.getLatitude()), Double.parseDouble(userLocation.getLongitude()));
             map.addMarker(new MarkerOptions()
-                    .title(userLocation.getBus_number())
-                    .position(yourLocation));
+                    .position(yourLocation)
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_icon)));
         }
-
-
-
-
     }
 
     @Override
