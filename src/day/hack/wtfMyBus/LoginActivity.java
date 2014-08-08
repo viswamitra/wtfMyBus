@@ -1,4 +1,5 @@
 package day.hack.wtfMyBus;
+import android.telephony.TelephonyManager;
 import day.hack.wtfMyBus.R;
 
 import android.app.Activity;
@@ -25,6 +26,7 @@ public class LoginActivity extends Activity {
 	private static final String APP_TITLE = "WTFmyBUS";
 	private static final int STATUS_CODE = 1;
 	private ProgressDialog progressDialog;
+    private static String userId;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -64,29 +66,40 @@ public class LoginActivity extends Activity {
 			}
 		});
 
+
+
 		loginButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+                userId = getUserId();
 				if (leecher.isChecked())
 				{
-					startActivityForLeecher();
+					startActivityForLeecher(userId);
 				}
 				else if (seeder.isChecked())
 				{
-					startActivityForSeeder();
+					startActivityForSeeder(userId);
 				}
 			}
-		});
+
+            private String getUserId() {
+                TelephonyManager tm=(TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+                return tm.getDeviceId();
+
+            }
+        });
 
 	}
 	
-	public void startActivityForLeecher() {
+	public void startActivityForLeecher(String userId) {
 		Intent intent = new Intent(this, LeecherActivity.class);
+        intent.putExtra("userId", userId);
 		startActivity(intent);
 	}
 	
-	public void startActivityForSeeder() {
+	public void startActivityForSeeder(String userId) {
 		Intent intent = new Intent(this, SeederActivity.class);
+        intent.putExtra("userId", userId);
 		startActivity(intent);
 	}
 	

@@ -1,5 +1,6 @@
 package day.hack.wtfMyBus;
 
+import android.util.Log;
 import day.hack.wtfMyBus.R;
 
 import android.app.Activity;
@@ -22,6 +23,9 @@ import android.view.View.OnClickListener;
 
 public class LeecherActivity extends Activity {
 
+    private static final String TAG = "leecherActivity";
+    private ProgressDialog progressDialog;
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,20 +41,36 @@ public class LeecherActivity extends Activity {
 
 	protected void onStart() {
 		super.onStart();
-		TextView busText = (TextView) findViewById(R.id.bustext);
+
 		SearchView seeder  = (SearchView) findViewById(R.id.searchView);
 		Button searchButton = (Button) findViewById(R.id.searchBtn);
+
+        final String busNumber = seeder.toString();
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        final String userId = (String) bundle.get("userId");
+
+        Log.d(TAG, "userId ------> "+ userId);
+        Log.d(TAG, "busNumber -------> "+ busNumber);
+
 		
 		searchButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivityForMap();
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                startMapAsyncTask(userId, busNumber);
+            }
+
+
+        });
 	}
 
+    private void startMapAsyncTask(String userId, String busNumber) {
+        progressDialog = new ProgressDialog(LeecherActivity.this);
+        new MapAsyncTask(userId, busNumber, this, progressDialog).execute();
+    }
 
-	public void startActivityForMap() {
+
+    public void startActivityForMap() {
 		Intent intent = new Intent(this, MapsActivity.class);
 		startActivity(intent);
 	}
