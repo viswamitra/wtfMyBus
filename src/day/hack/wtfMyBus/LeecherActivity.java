@@ -83,10 +83,5 @@ public class LeecherActivity extends Activity {
         new MapAsyncTask(userId, busNumber, this, progressDialog).execute();
     }
 
-
-    public void startActivityForMap() {
-//		Intent intent = new Intent(this, MapsActivity.class);
-//		startActivity(intent);
-	}
 }
 

@@ -1,5 +1,12 @@
 package day.hack.wtfMyBus;
 
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.util.Log;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import day.hack.wtfMyBus.R;
 
 import android.app.Activity;
@@ -19,7 +26,12 @@ import android.view.View.OnClickListener;
 
 
 
-public class SeederActivity extends Activity {
+public class SeederActivity extends Activity implements LocationListener {
+
+    private static final String TAG = "seederActivity";
+    private String userId;
+    private String busNumber;
+    private ProgressDialog progressDialog;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,20 +50,49 @@ public class SeederActivity extends Activity {
 		super.onStart();
 		TextView busText = (TextView) findViewById(R.id.bustext);
 		EditText seeder = (EditText) findViewById(R.id.editbustext);
-		Button shareButton = (Button) findViewById(R.id.shareBtn);
-		String searchableitem = seeder.getText().toString();
+        Button shareButton = (Button) findViewById(R.id.shareBtn);
+        busNumber = seeder.getText().toString();
+        userId = getIntent().getExtras().get("userId").toString();
+
+        Log.d(TAG, "------------> "+busNumber);
+        Log.d(TAG, "----------> "+userId);
 		shareButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startActivityForMap();
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                startActivityForMap();
+            }
+        });
 	}
 	
 	public void startActivityForMap() {
-//		Intent intent = new Intent(this, MapsActivity.class);
+//		Intent intent = new Intent(this, SeederLocationMapActivity.class);
+//        intent.putExtra("userId", userId);
+//        intent.putExtra("busNumber", busNumber);
 //		startActivity(intent);
+
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
 	}
+
+    @Override
+    public void onLocationChanged(Location location) {
+        new SeederAsyncTask(userId, busNumber, location, progressDialog).execute();
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
 }
 
 
