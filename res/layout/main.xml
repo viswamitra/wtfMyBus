@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
-        >
-    <TextView
-            android:layout_width="fill_parent"
+              android:layout_width="match_parent"
+              android:background="@color/light_green"
+              android:layout_height="match_parent" android:gravity="center_vertical|center_horizontal">
+
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_centerInParent="true"
+              android:textColor="@android:color/black"
+              android:text="@string/app_name"
+              android:id="@+id/app_name"
+              android:textSize="20pt"/>
+
+    <Button android:layout_width="200px"
             android:layout_height="wrap_content"
-            android:text="Hello World, MyActivity"
-            />
+            android:text="@string/enter_button"
+            android:layout_marginTop="50px"
+            android:onClick="LaunchLoginActivity"
+            android:id="@+id/enter_button" />
+
+
+
+
 </LinearLayout>
 

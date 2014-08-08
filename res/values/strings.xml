@@ -3,4 +3,5 @@
     <string name="app_name">wtfMyBus</string>
     <string name="gps_not_found">GPS is not active</string>
     <string name="gps_found">GPS is not active</string>
+    <string name="enter_button">Enter</string>
 </resources>
