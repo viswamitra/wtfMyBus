@@ -25,6 +25,7 @@ public class LeecherActivity extends Activity {
 
     private static final String TAG = "leecherActivity";
     private ProgressDialog progressDialog;
+    private String busNumber;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -43,9 +44,22 @@ public class LeecherActivity extends Activity {
 		super.onStart();
 
 		SearchView seeder  = (SearchView) findViewById(R.id.searchView);
-		Button searchButton = (Button) findViewById(R.id.searchBtn);
+		final Button searchButton = (Button) findViewById(R.id.searchBtn);
+        searchButton.setEnabled(false);
+        seeder.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
 
-        final String busNumber = seeder.toString();
+            @Override
+            public boolean onQueryTextChange(String s) {
+                busNumber = s;
+                searchButton.setEnabled(true);
+                return false;
+            }
+        });
+
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         final String userId = (String) bundle.get("userId");

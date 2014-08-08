@@ -75,7 +75,7 @@ public class MapAsyncTask extends AsyncTask<String, Void, List> {
     private List<UserLocation> convertResponseToUserLocations(String response) {
         Type type = new TypeToken<ArrayList<UserLocation>>() {
         }.getType();
-        ArrayList<UserLocation> userLocations = new Gson().fromJson(response, type);
+        List<UserLocation> userLocations = new Gson().fromJson(response, type);
         return userLocations;
     }
 
@@ -84,7 +84,7 @@ public class MapAsyncTask extends AsyncTask<String, Void, List> {
     protected void onPostExecute(List result) {
         super.onPostExecute(result);
         try {
-            if ( progressDialog.isShowing()) {
+            if (progressDialog.isShowing()) {
                 progressDialog.dismiss();
                 progressDialog = null;
             }
@@ -96,6 +96,4 @@ public class MapAsyncTask extends AsyncTask<String, Void, List> {
         intent.putExtra("userLocationsJson", userLocationsJson);
         context.startActivity(intent);
     }
-
-
 }
