@@ -18,7 +18,7 @@
         android:required="true"/>
     <application
         
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/app_icon"
         android:theme="@style/AppTheme" >
         <activity
             android:name="day.hack.wtfMyBus.LandingActivity"
